@@ -40,7 +40,7 @@ class CollaborativeFiltering:
 				counter = 0
 				commonitems = []
 				for k in range(self.num_items):
-					if(ratings[i][k]!=0 and ratings[j][k]!=0):
+					if(ratings[i][k]!=0):
 						sum_i += ratings[i][k]
 						sum_j += ratings[j][k]
 						commonitems.append(k)
