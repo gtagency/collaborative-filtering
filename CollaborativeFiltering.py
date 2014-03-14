@@ -84,7 +84,7 @@ class CollaborativeFiltering:
 				pred = 0.0
 				wsum = 0.0
 				for j in range(num_users):
-					if ratings[i][m] and i != j:
+					if ratings[j][m] and i != j:
 						pred += weights[i][j]*(ratings[j][m] - user_means[j])
 						wsum += abs(weights[i][j])
 				predictions[i][m] = user_means[i] + (pred/wsum if wsum != 0 else 0)
