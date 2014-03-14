@@ -40,7 +40,7 @@ class CollaborativeFiltering:
 				counter = 0
 				commonitems = []
 				for k in range(self.num_items):
-					if(ratings[i][k]!=0):
+					if(ratings[i][k]!=0 and ratings[j][k]!=0):
 						sum_i += ratings[i][k]
 						sum_j += ratings[j][k]
 						commonitems.append(k)
@@ -84,7 +84,7 @@ class CollaborativeFiltering:
 				pred = 0.0
 				wsum = 0.0
 				for j in range(num_users):
-					if ratings[i][m] and ratings[j][m] != 0 and i != j:
+					if ratings[i][m] and i != j:
 						pred += weights[i][j]*(ratings[j][m] - user_means[j])
 						wsum += abs(weights[i][j])
 				predictions[i][m] = user_means[i] + (pred/wsum if wsum != 0 else 0)
